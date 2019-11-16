@@ -1,6 +1,7 @@
 
 package projetodesafiojava;
 
+import java.util.ArrayList;
 import javax.swing.JTextArea;
 
 
@@ -21,6 +22,19 @@ public class Veiculo {
       mmlog.append(toString());
       
    }
+   
+   public static void listaVeiculos (ArrayList<Veiculo> lista, JTextArea memo){              
+      String a = "";
+       for (Veiculo lista1 : lista) {
+           memo.setText("");
+           a = lista.toString().replace("[", "");
+           a = a.replace("]","") ;
+           a = a.replace(",","");
+           memo.append(a);
+       }                                 
+       
+   }
+   
    
    public String getModelo(){       
        return modelo;       
@@ -57,7 +71,7 @@ public class Veiculo {
     @Override
     public String toString() {
         return "Modelo: "+ this.getModelo() + "\nTipo: "+this.getTipoVeiculo() + "\nCâmbio: "+ this.getCambio()+
-                "\nCores: "+this.cores + "\n----------------------";
+                "\nCores: "+this.cores + "\n----------------------\n";
     }                                               
    
     
