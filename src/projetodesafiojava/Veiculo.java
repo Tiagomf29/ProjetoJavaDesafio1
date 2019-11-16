@@ -13,26 +13,25 @@ public class Veiculo {
    private String cores;
    
    
-   public Veiculo(String modelo, TipoVeiculo veiculo, String cambio,String cores, JTextArea mmlog){
+   public Veiculo(String modelo, TipoVeiculo veiculo, String cambio,String cores){
       
       this.modelo = modelo;
       this.tipoVeiculo = veiculo;
       this.cambio = cambio;
       this.cores = cores;      
-      mmlog.append(toString());
       
    }
    
-   public static void listaVeiculos (ArrayList<Veiculo> lista, JTextArea memo){              
-      String a = "";
-       for (Veiculo lista1 : lista) {
-           memo.setText("");
+   public static StringBuilder listaVeiculos (ArrayList<Veiculo> lista){              
+      String a;
+      StringBuilder listaString = new StringBuilder();
+      
            a = lista.toString().replace("[", "");
            a = a.replace("]","") ;
-           a = a.replace(",","");
-           memo.append(a);
-       }                                 
+           a = a.replace(", Modelo:","Modelo:");
+           listaString.append(a);                                  
        
+       return listaString;
    }
    
    

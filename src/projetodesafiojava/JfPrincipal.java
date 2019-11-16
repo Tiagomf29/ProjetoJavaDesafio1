@@ -17,7 +17,7 @@ public class JfPrincipal extends javax.swing.JFrame {
       initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        jRadioButton1.setSelected(true);
+        jrNaoSeAplica.setSelected(true);
         lista = new ArrayList<>();
 
     }
@@ -38,7 +38,7 @@ public class JfPrincipal extends javax.swing.JFrame {
         
             TipoVeiculo tv = null;
             
-            switch(jComboBox1.getSelectedIndex()){
+            switch(jcTipo.getSelectedIndex()){
                 
                 case 0 : tv = TipoVeiculo.CARRO;
                          break;
@@ -57,31 +57,35 @@ public class JfPrincipal extends javax.swing.JFrame {
         StringBuilder sb = new StringBuilder();
         String cor;
         
-        if( jCheckBox1.isSelected() ){
-            sb.append(jCheckBox1.getText()).append(",");
+        if( jcBranco.isSelected() ){
+            sb.append(jcBranco.getText()).append(",");
         }
-        if( jCheckBox2.isSelected() ){
-            sb.append(jCheckBox2.getText()).append(",");
+        if( jcPreto.isSelected() ){
+            sb.append(jcPreto.getText()).append(",");
         }
-        if( jCheckBox3.isSelected() ){
-            sb.append(jCheckBox3.getText()).append(",");
+        if( jcPrata.isSelected() ){
+            sb.append(jcPrata.getText()).append(",");
         }
-        if( jCheckBox4.isSelected() ){
-            sb.append(jCheckBox4.getText()).append(",");
+        if( jcAmarelo.isSelected() ){
+            sb.append(jcAmarelo.getText()).append(",");
         }
-        if( jCheckBox5.isSelected() ){
-            sb.append(jCheckBox5.getText()).append(",");
+        if( jcVermelho.isSelected() ){
+            sb.append(jcVermelho.getText()).append(",");
         }
-        if( jCheckBox6.isSelected() ){
-            sb.append(jCheckBox6.getText()).append(",");
+        if( jcAzul.isSelected() ){
+            sb.append(jcAzul.getText()).append(",");
         }
-        if( jCheckBox7.isSelected() ){
-            sb.append(jCheckBox7.getText()).append(",");
+        if( jcVerde.isSelected() ){
+            sb.append(jcVerde.getText()).append(",");
         }        
          
        int tamanho = sb.length();
        
+       if(tamanho==0){
+           cor = "";
+       }else{
        cor = sb.substring(0,tamanho-1);
+       }
                                              
         return cor;
     }
@@ -90,13 +94,13 @@ public class JfPrincipal extends javax.swing.JFrame {
         
         String modeloMarcado;
         
-        if(jRadioButton1.isSelected()){
-            modeloMarcado = jRadioButton1.getText();
+        if(jrNaoSeAplica.isSelected()){
+            modeloMarcado = jrNaoSeAplica.getText();
         }else
-        if(jRadioButton2.isSelected()){
-            modeloMarcado = jRadioButton2.getText();
+        if(jrManual.isSelected()){
+            modeloMarcado = jrManual.getText();
         }else{
-            modeloMarcado = jRadioButton3.getText();
+            modeloMarcado = jrAutomatico.getText();
         }    
         
         return modeloMarcado;
@@ -118,29 +122,29 @@ public class JfPrincipal extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jtfNome = new javax.swing.JTextField();
+        jcTipo = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        jrAutomatico = new javax.swing.JRadioButton();
+        jrManual = new javax.swing.JRadioButton();
+        jrNaoSeAplica = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
+        jcBranco = new javax.swing.JCheckBox();
+        jcPreto = new javax.swing.JCheckBox();
+        jcPrata = new javax.swing.JCheckBox();
+        jcAmarelo = new javax.swing.JCheckBox();
+        jcVermelho = new javax.swing.JCheckBox();
+        jcAzul = new javax.swing.JCheckBox();
+        jcVerde = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jtMemo = new javax.swing.JTextArea();
+        jbCriarVeiculo = new javax.swing.JButton();
+        jbAcelerar = new javax.swing.JButton();
+        jbFrear = new javax.swing.JButton();
+        jbEstacionar = new javax.swing.JButton();
+        jbListarTodosVeiculosCriados = new javax.swing.JButton();
 
         jButton5.setText("jButton5");
 
@@ -152,43 +156,43 @@ public class JfPrincipal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Tipo");
 
-        jTextField1.setName("jtfNome"); // NOI18N
+        jtfNome.setName(""); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro", "Moto", "Caminhão" }));
-        jComboBox1.setSelectedItem(null);
-        jComboBox1.setToolTipText("");
-        jComboBox1.setName("jcbxTipo"); // NOI18N
-        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jcTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro", "Moto", "Caminhão" }));
+        jcTipo.setSelectedItem(null);
+        jcTipo.setToolTipText("");
+        jcTipo.setName(""); // NOI18N
+        jcTipo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jComboBox1MouseClicked(evt);
+                jcTipoMouseClicked(evt);
             }
         });
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jcTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jcTipoActionPerformed(evt);
             }
         });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("Automático");
-        jRadioButton3.setEnabled(false);
-        jRadioButton3.setName("jrAutomatico"); // NOI18N
+        buttonGroup1.add(jrAutomatico);
+        jrAutomatico.setText("Automático");
+        jrAutomatico.setEnabled(false);
+        jrAutomatico.setName(""); // NOI18N
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setSelected(true);
-        jRadioButton2.setText("Manual");
-        jRadioButton2.setEnabled(false);
-        jRadioButton2.setName("jrManual"); // NOI18N
+        buttonGroup1.add(jrManual);
+        jrManual.setSelected(true);
+        jrManual.setText("Manual");
+        jrManual.setEnabled(false);
+        jrManual.setName(""); // NOI18N
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Não se aplica");
-        jRadioButton1.setEnabled(false);
-        jRadioButton1.setName("jrNaoAplica"); // NOI18N
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jrNaoSeAplica);
+        jrNaoSeAplica.setText("Não se aplica");
+        jrNaoSeAplica.setEnabled(false);
+        jrNaoSeAplica.setName(""); // NOI18N
+        jrNaoSeAplica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jrNaoSeAplicaActionPerformed(evt);
             }
         });
 
@@ -205,9 +209,9 @@ public class JfPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(jrAutomatico)
+                    .addComponent(jrNaoSeAplica)
+                    .addComponent(jrManual))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -215,37 +219,42 @@ public class JfPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton1)
+                .addComponent(jrNaoSeAplica)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(jrManual)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton3)
+                .addComponent(jrAutomatico)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jCheckBox1.setText("Branco");
-        jCheckBox1.setToolTipText("");
-        jCheckBox1.setName("jcBranco"); // NOI18N
+        jcBranco.setText("Branco");
+        jcBranco.setToolTipText("");
+        jcBranco.setName(""); // NOI18N
 
-        jCheckBox2.setText("Preto");
-        jCheckBox2.setName("jcPreto"); // NOI18N
+        jcPreto.setText("Preto");
+        jcPreto.setName(""); // NOI18N
 
-        jCheckBox3.setText("Prata");
-        jCheckBox3.setName("jcPrata"); // NOI18N
+        jcPrata.setText("Prata");
+        jcPrata.setName(""); // NOI18N
 
-        jCheckBox4.setText("Amarelo");
-        jCheckBox4.setName("jcAmarelo"); // NOI18N
+        jcAmarelo.setText("Amarelo");
+        jcAmarelo.setName(""); // NOI18N
 
-        jCheckBox5.setText("Vermelho");
-        jCheckBox5.setName("jcVermelho"); // NOI18N
+        jcVermelho.setText("Vermelho");
+        jcVermelho.setName(""); // NOI18N
 
-        jCheckBox6.setText("Azul");
-        jCheckBox6.setName("jcAzul"); // NOI18N
+        jcAzul.setText("Azul");
+        jcAzul.setName(""); // NOI18N
 
-        jCheckBox7.setText("Verde");
-        jCheckBox7.setName("jcVerde"); // NOI18N
+        jcVerde.setText("Verde");
+        jcVerde.setName(""); // NOI18N
+        jcVerde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcVerdeActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Cores");
@@ -257,15 +266,15 @@ public class JfPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox4))
+                    .addComponent(jcBranco)
+                    .addComponent(jcPreto)
+                    .addComponent(jcPrata)
+                    .addComponent(jcAmarelo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox5)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jCheckBox7))
+                    .addComponent(jcVermelho)
+                    .addComponent(jcAzul)
+                    .addComponent(jcVerde))
                 .addGap(37, 37, 37))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel3)
@@ -278,64 +287,65 @@ public class JfPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox1)
+                        .addComponent(jcBranco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox2)
+                        .addComponent(jcPreto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox3)
+                        .addComponent(jcPrata)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox4))
+                        .addComponent(jcAmarelo))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addComponent(jCheckBox5)
+                        .addComponent(jcVermelho)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox6)
+                        .addComponent(jcAzul)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox7)))
+                        .addComponent(jcVerde)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setName("mmLog"); // NOI18N
-        jScrollPane1.setViewportView(jTextArea1);
+        jtMemo.setColumns(20);
+        jtMemo.setRows(5);
+        jtMemo.setName("mmLog"); // NOI18N
+        jScrollPane1.setViewportView(jtMemo);
 
-        jButton1.setText("Criar Veículo");
-        jButton1.setName("jbCriarVeiculo"); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbCriarVeiculo.setText("Criar Veículo");
+        jbCriarVeiculo.setName(""); // NOI18N
+        jbCriarVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbCriarVeiculoActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Acelerar");
-        jButton2.setName("jbAcelerar"); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbAcelerar.setText("Acelerar");
+        jbAcelerar.setName(""); // NOI18N
+        jbAcelerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbAcelerarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Frear");
-        jButton3.setName("jbFrear"); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbFrear.setText("Frear");
+        jbFrear.setName(""); // NOI18N
+        jbFrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbFrearActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Estacionar");
-        jButton4.setName("jbEstacionar"); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jbEstacionar.setText("Estacionar");
+        jbEstacionar.setName(""); // NOI18N
+        jbEstacionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jbEstacionarActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Listar todos veiculos criados");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jbListarTodosVeiculosCriados.setText("Listar todos veículos criados");
+        jbListarTodosVeiculosCriados.setName(""); // NOI18N
+        jbListarTodosVeiculosCriados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jbListarTodosVeiculosCriadosActionPerformed(evt);
             }
         });
 
@@ -348,20 +358,20 @@ public class JfPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jcTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbCriarVeiculo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbAcelerar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbFrear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbEstacionar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbListarTodosVeiculosCriados, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -380,18 +390,18 @@ public class JfPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(76, 76, 76)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbCriarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbAcelerar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbFrear, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbEstacionar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
+                .addComponent(jbListarTodosVeiculosCriados)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -405,78 +415,81 @@ public class JfPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void jrNaoSeAplicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrNaoSeAplicaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_jrNaoSeAplicaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbCriarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCriarVeiculoActionPerformed
         
-        if(jTextField1.getText().equals("")){
+        if(jtfNome.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Modelo não informado. Verifique!");
-            jTextField1.grabFocus();
+            jtfNome.grabFocus();
         }else
-        if (jComboBox1.getSelectedIndex() == -1){
+        if (jcTipo.getSelectedIndex() == -1){
             JOptionPane.showMessageDialog(null, "Tipo de veículo não informado. Verifique!");
-            jTextField1.grabFocus();
+            jtfNome.grabFocus();
         }else{
         veiculoCriado = true;               
-        jTextArea1.setText("");
+        jtMemo.setText("");
         TipoVeiculo tpVeiculo = TipoVeiculo();
-        Veiculo v = new Veiculo(jTextField1.getText(), tpVeiculo, VerificaModeloMarcado(), VerificaCoresMarcados(), jTextArea1);
+        Veiculo v = new Veiculo(jtfNome.getText(), tpVeiculo, VerificaModeloMarcado(), VerificaCoresMarcados());        
         adicionaVeiculos(v);
-        }
-        
-        
+        jtMemo.append(v.toString());
+        }                
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbCriarVeiculoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jbAcelerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAcelerarActionPerformed
        if(veiculoCriado)    {
-        jTextArea1.append(Veiculo.acelerar());
+        jtMemo.append(Veiculo.acelerar());
        }else{
            JOptionPane.showMessageDialog(null, "Veículo não foi criado!");
        }     
        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jbAcelerarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jbFrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFrearActionPerformed
        if(veiculoCriado)    {
-        jTextArea1.append(Veiculo.frear());
+        jtMemo.append(Veiculo.frear());
        }else{
            JOptionPane.showMessageDialog(null, "Veículo não foi criado!");
        }            
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jbFrearActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jbEstacionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEstacionarActionPerformed
        if(veiculoCriado)    {
-        Veiculo.estacionar(jTextArea1);
+        Veiculo.estacionar(jtMemo);
        }else{
            JOptionPane.showMessageDialog(null, "Veículo não foi criado!");
        }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jbEstacionarActionPerformed
 
-    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+    private void jcTipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcTipoMouseClicked
         
-    }//GEN-LAST:event_jComboBox1MouseClicked
+    }//GEN-LAST:event_jcTipoMouseClicked
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jcTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcTipoActionPerformed
       
-        if (jComboBox1.getSelectedIndex()==0){
-            jRadioButton1.setEnabled(true);
-            jRadioButton2.setEnabled(true);
-            jRadioButton3.setEnabled(true);
+        if (jcTipo.getSelectedIndex()==0){
+            jrNaoSeAplica.setEnabled(true);
+            jrManual.setEnabled(true);
+            jrAutomatico.setEnabled(true);
         }else{
-            jRadioButton1.setSelected(true);
-            jRadioButton1.setEnabled(false);
-            jRadioButton2.setEnabled(false);
-            jRadioButton3.setEnabled(false);
+            jrNaoSeAplica.setSelected(true);
+            jrNaoSeAplica.setEnabled(false);
+            jrManual.setEnabled(false);
+            jrAutomatico.setEnabled(false);
         }
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jcTipoActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        
-        Veiculo.listaVeiculos(lista,jTextArea1);            
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void jbListarTodosVeiculosCriadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbListarTodosVeiculosCriadosActionPerformed
+        jtMemo.setText("");
+        jtMemo.append(Veiculo.listaVeiculos(lista).toString());            
+    }//GEN-LAST:event_jbListarTodosVeiculosCriadosActionPerformed
+
+    private void jcVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcVerdeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcVerdeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -517,31 +530,31 @@ public class JfPrincipal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton jbAcelerar;
+    private javax.swing.JButton jbCriarVeiculo;
+    private javax.swing.JButton jbEstacionar;
+    private javax.swing.JButton jbFrear;
+    private javax.swing.JButton jbListarTodosVeiculosCriados;
+    private javax.swing.JCheckBox jcAmarelo;
+    private javax.swing.JCheckBox jcAzul;
+    private javax.swing.JCheckBox jcBranco;
+    private javax.swing.JCheckBox jcPrata;
+    private javax.swing.JCheckBox jcPreto;
+    private javax.swing.JComboBox<String> jcTipo;
+    private javax.swing.JCheckBox jcVerde;
+    private javax.swing.JCheckBox jcVermelho;
+    private javax.swing.JRadioButton jrAutomatico;
+    private javax.swing.JRadioButton jrManual;
+    private javax.swing.JRadioButton jrNaoSeAplica;
+    private javax.swing.JTextArea jtMemo;
+    private javax.swing.JTextField jtfNome;
     // End of variables declaration//GEN-END:variables
 }
